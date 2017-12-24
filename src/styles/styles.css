@@ -1,0 +1,99 @@
+.App {
+
+}
+
+.appBar {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: #ddd  ;
+    font-size: large;
+    font-family: Inconsolata;
+}
+
+
+.menu {
+    text-decoration: none;
+    display: flex;
+
+}
+
+.menu > * {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.menu:last-child {
+    text-align: right;
+}
+
+.content {
+    font-family: Roboto;
+    text-align: left;
+}
+
+.addButton {
+    border-radius: 50%;
+    background-color: #ff4081;
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    right: 30px;
+    box-shadow: rgba(0,0,0,0.156863) 0px 3px 10px,   rgba(0,0,0,0.227451) 0px 3px 10px ;
+    padding: 25px;
+    padding-right: 30px;
+    padding-right: 30px;
+
+}
+
+.addButton:hover {
+    background-color: #f9578e;
+}
+
+
+.overlay {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.6);
+    overflow-x: hidden;
+}
+
+.heading {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.addProjectForm {
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.12) 0px 3px 10px, rgba(0,0,0,0.12) 0px 3px 10px ;
+    width: 320px;
+    padding: 25px;
+    border-radius: 2px;
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    margin: 100px auto;
+}
+
+.formActionContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.button {
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #00afcc;
+
+
+}
+.button:hover {
+     background-color: rgba(0,0,0,0.05);
+     font-weight: 700;
+ }
