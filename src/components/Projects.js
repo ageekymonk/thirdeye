@@ -8,7 +8,6 @@ import 'font-awesome/css/font-awesome.css';
 
 
 var Projects = (props) => {
-    console.log(props)
         return (<div>
             Project List for {props.auth.user ? props.auth.user.displayName : 'Guest'}
 
@@ -17,12 +16,10 @@ var Projects = (props) => {
             </a>
 
             <ul>
-                {props.projects.map((elem) => <li key={elem}>{elem}</li>)}
+                {Object.values(props.projects).map((elem) => <li key={elem.project}>{elem.project}</li>)}
             </ul>
 
             <Route exact path='/projects/add' component={ProjectAddContainer}/>
-
-
         </div>)
 }
 

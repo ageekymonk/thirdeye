@@ -4,6 +4,14 @@ export function AddProject(project) {
     return { type: ActionTypes.ADD_PROJECT, project }
 }
 
+export function AddProjectSuccess(project) {
+    return { type: ActionTypes.ADD_PROJECT_SUCCESS, project }
+}
+
+export function AddProjectFailure(message) {
+    return { type: ActionTypes.ADD_PROJECT_FAILURE, message }
+}
+
 export function DeleteProject(project) {
     return { type: ActionTypes.DELETE_PROJECT, project }
 }

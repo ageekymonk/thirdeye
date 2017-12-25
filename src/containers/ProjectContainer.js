@@ -14,12 +14,19 @@ class ProjectContainer extends React.Component {
     };
 
     componentWillMount() {
-        this.props.fetchProject(this.state.user);
+        if (this.state.user)
+        {
+            this.props.fetchProject(this.state.user);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         if ((this.state.projects != nextProps.projects) || (this.state.user != nextProps.auth.user)){
             this.setState({user: nextProps.auth.user, projects: nextProps.projects})
+        }
+
+        if ((this.state.user != nextProps.auth.user)){
+            this.props.fetchProject(nextProps.auth.user)
         }
     }
 

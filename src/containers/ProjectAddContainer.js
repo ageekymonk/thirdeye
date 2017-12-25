@@ -25,7 +25,12 @@ class ProjectAddContainer extends React.Component {
     }
 
     saveProject() {
-        this.props.addProject(this.state.project)
+        let p = {
+            notify: 'email',
+            project: this.state.project,
+            type: 'github'
+        };
+        this.props.addProject(p);
     }
 
     render() {
