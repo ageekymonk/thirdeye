@@ -1,15 +1,23 @@
 import React from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom'
 
-import PageContent from 'PageContent';
 import AppBarContainer from 'containers/AppBarContainer';
+
 
 var App = () => {
     return (
-        <div className='container-fluid app'>
-            <div className='row'> <AppBarContainer/> </div>
-            <div className='row'> <PageContent/> </div>
-            <div className="row footer-container"/>
+        <div className="container-fluid">
+            <div className="row header-container">
+                <AppBarContainer/>
+            </div>
+            <div className="row body-container">
+
+            </div>
+            <div className="row footer-container">
+
+            </div>
         </div>
+
     );
 };
 

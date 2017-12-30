@@ -10,14 +10,16 @@ import 'font-awesome/css/font-awesome.css';
 
 const AppBar = (props) => {
     return (
-        <div className='row appBar'>
-
+        <div className='row app-bar'>
             <div className='col-sm-1'> <FontAwesome name="bars"/></div>
             <div className='menu col-sm-11'>
                 <div>
-                <NavLink to="/">Home</NavLink>
+                    <NavLink to="/">Home</NavLink>
                 </div>
-                <LoginContainer></LoginContainer>
+
+                <div >
+                    <button type="button" className="btn btn-outline-primary" onClick={props.signOut}>Logout</button>
+                </div>
             </div>
         </div>
     )
