@@ -19,7 +19,6 @@ class AppBarContainer extends React.Component {
 
     signOut() {
         // Sign out of Firebase.
-        console.log("Signing Out")
         this.context.appConfig.auth.signOut();
         this.props.dispatch(ActionTypes.AuthSessionEnd())
     }

@@ -133,8 +133,9 @@ switch {
     margin-bottom: 20px;
 }
 
-.addProjectForm {
+.add-project-form {
     background-color: #fff;
+    color: #2b2b2b;
     box-shadow: rgba(0,0,0,0.12) 0px 3px 10px, rgba(0,0,0,0.12) 0px 3px 10px ;
     width: 320px;
     padding: 25px;
@@ -145,6 +146,13 @@ switch {
     margin: 100px auto;
 }
 
+.add-project-form  button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 5px;
+
+}
 .formActionContainer {
     display: flex;
     justify-content: flex-end;
@@ -164,3 +172,8 @@ switch {
      background-color: rgba(0,0,0,0.05);
      font-weight: 700;
  }
+
+.project-actions {
+    display: inline;
+    padding: 5px;
+}

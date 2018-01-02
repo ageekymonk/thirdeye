@@ -12,12 +12,28 @@ export function AddProjectFailure(message) {
     return { type: ActionTypes.ADD_PROJECT_FAILURE, message }
 }
 
-export function DeleteProject(project) {
-    return { type: ActionTypes.DELETE_PROJECT, project }
+export function DeleteProject(projectId) {
+    return { type: ActionTypes.DELETE_PROJECT, projectId }
+}
+
+export function DeleteProjectSuccess(project) {
+    return { type: ActionTypes.DELETE_PROJECT_SUCCESS, project }
+}
+
+export function DeleteProjectFailure(message) {
+    return { type: ActionTypes.DELETE_PROJECT_FAILURE, message }
 }
 
 export function UpdateProject(project) {
     return { type: ActionTypes.UPDATE_PROJECT, project }
+}
+
+export function UpdateProjectSuccess(project) {
+    return { type: ActionTypes.UPDATE_PROJECT_SUCCESS, project }
+}
+
+export function UpdateProjectFailure(message) {
+    return { type: ActionTypes.UPDATE_PROJECT_FAILURE, message }
 }
 
 export function FetchProject(user) {

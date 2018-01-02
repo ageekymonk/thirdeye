@@ -2,6 +2,8 @@ import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom'
 
 import AppBarContainer from 'containers/AppBarContainer';
+import ProjectContainer from 'containers/ProjectContainer';
+import AppConfig from "../firebase/Fire";
 
 
 var App = () => {
@@ -11,7 +13,9 @@ var App = () => {
                 <AppBarContainer/>
             </div>
             <div className="row body-container">
-
+                <Switch>
+                    <Route path="/app/projects" component={ProjectContainer} />
+                </Switch>
             </div>
             <div className="row footer-container">
 

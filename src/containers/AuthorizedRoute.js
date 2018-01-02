@@ -11,11 +11,6 @@ class AuthorizedRoute extends Component {
 
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log("Component Will Receive Props")
-        console.log(nextProps)
-    }
-
     render() {
         const { component: Component, appConfig, auth, ...rest } = this.props
         return (

@@ -14,9 +14,14 @@ const AppBar = (props) => {
             <div className='col-sm-1'> <FontAwesome name="bars"/></div>
             <div className='menu col-sm-11'>
                 <div>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/app">Home</NavLink>
                 </div>
-
+                <div>
+                    <NavLink to="/app/projects">Projects</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/app/releases">Releases</NavLink>
+                </div>
                 <div >
                     <button type="button" className="btn btn-outline-primary" onClick={props.signOut}>Logout</button>
                 </div>
