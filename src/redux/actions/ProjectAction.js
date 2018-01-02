@@ -24,12 +24,12 @@ export function DeleteProjectFailure(message) {
     return { type: ActionTypes.DELETE_PROJECT_FAILURE, message }
 }
 
-export function UpdateProject(project) {
-    return { type: ActionTypes.UPDATE_PROJECT, project }
+export function UpdateProject(projectId, project) {
+    return { type: ActionTypes.UPDATE_PROJECT, projectId, project }
 }
 
-export function UpdateProjectSuccess(project) {
-    return { type: ActionTypes.UPDATE_PROJECT_SUCCESS, project }
+export function UpdateProjectSuccess(projectId, project) {
+    return { type: ActionTypes.UPDATE_PROJECT_SUCCESS, projectId, project }
 }
 
 export function UpdateProjectFailure(message) {

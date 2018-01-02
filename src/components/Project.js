@@ -3,7 +3,8 @@ import FontAwesome from 'react-fontawesome';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import _ from 'lodash';
 
-import ProjectAdd from 'components/ProjectAdd'
+import ProjectAdd from 'components/ProjectAdd';
+import ProjectEdit from 'components/ProjectEdit'
 
 import 'font-awesome/css/font-awesome.css';
 import {AddProject} from "../redux/actions/ProjectAction";
@@ -46,11 +47,19 @@ let Project = (props) => {
                 <Route exact path='/app/projects/add' render={() => <ProjectAdd handleAddProjectNameChange={props.handleAddProjectNameChange}
                                                                                      handleAddProjectTypeChange={props.handleAddProjectTypeChange}
                                                                                      handleAddProjectNotificationChange={props.handleAddProjectNotificationChange}
-                                                                                     handleOnAdd={props.handleOnAdd} />}/>
+                                                                                     handleOnAdd={props.handleOnAdd}
+                                                                                     handleCancel={props.handleCancel}/>
+                }/>
                 <Route path={`/app/projects/delete/:projectId`} render={(p) => {props.handleDeleteProject(p.match.params.projectId);
                 return <div></div>}}/>
                 <Route path={`/app/projects/pause/:projectId`} render={() => <div>pause</div>}/>
-                <Route path={`/app/projects/edit/:projectId`} render={() => <div>delete</div>}/>
+                <Route path={`/app/projects/edit/:projectId`} render={(p) => <ProjectEdit handleAddProjectNameChange={props.handleAddProjectNameChange}
+                                                                                          handleAddProjectTypeChange={props.handleAddProjectTypeChange}
+                                                                                          handleAddProjectNotificationChange={props.handleAddProjectNotificationChange}
+                                                                                          handleCancel={props.handleCancel}
+                                                                                          handleOnEdit={props.handleOnEdit}
+                                                                                          projectId={p.match.params.projectId}
+                                                                                          project={props.projects[p.match.params.projectId]}/>}/>
             </Switch>
         </div>)
 }

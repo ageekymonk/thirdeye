@@ -11,7 +11,7 @@ class ProjectContainer extends React.Component {
     state = {
         user: this.props.auth.user ? this.props.auth.user : {},
         projects: this.props.projects,
-        newProject: {}
+        curProject: {}
     };
 
     constructor(props, context) {
@@ -22,6 +22,8 @@ class ProjectContainer extends React.Component {
         this.handleAddProjectTypeChange = this.handleAddProjectTypeChange.bind(this);
         this.handleAddProjectNotificationChange = this.handleAddProjectNotificationChange.bind(this);
         this.handleOnAdd = this.handleOnAdd.bind(this);
+        this.handleOnEdit = this.handleOnEdit.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
     }
 
     componentWillMount() {
@@ -52,27 +54,44 @@ class ProjectContainer extends React.Component {
 
     handleAddProjectNameChange(e) {
         this.setState(Object.assign({}, this.state,
-            {newProject: Object.assign({}, this.state.newProject, {projectName: e.target.value})}))
+            {curProject: Object.assign({}, this.state.curProject, {projectName: e.target.value})}))
     }
 
     handleAddProjectTypeChange(e) {
         this.setState(Object.assign({}, this.state,
-            {newProject: Object.assign({}, this.state.newProject, {projectType: e.target.value})}))
+            {curProject: Object.assign({}, this.state.curProject, {projectType: e.target.value})}))
     }
 
     handleAddProjectNotificationChange(e) {
         this.setState(Object.assign({}, this.state,
-            {newProject: Object.assign({}, this.state.newProject, {notificationType: e.target.value})}))
+            {curProject: Object.assign({}, this.state.curProject, {notificationType: e.target.value})}))
     }
 
     handleOnAdd(e) {
         e.preventDefault();
+
         let p = {
-            notify: this.state.newProject.notificationType,
-            project: this.state.newProject.projectName,
-            type: this.state.newProject.projectType
+            notify: this.state.curProject.notificationType,
+            project: this.state.curProject.projectName,
+            type: this.state.curProject.projectType
         };
         this.props.addProject(p);
+        this.props.history.push("/app/projects");
+    }
+
+    handleOnEdit(e) {
+        e.preventDefault();
+        if (this.state.curProject.notificationType || this.state.curProject.projectName || this.state.curProject.projectType) {
+            let p = Object.assign({}, this.state.projects[e.target.id])
+            p.notify = this.state.curProject.notificationType ? this.state.curProject.notificationType : p.notify;
+            p.project = this.state.curProject.projectName ? this.state.curProject.projectName : p.project;
+            p.type = this.state.curProject.projectType ? this.state.curProject.projectType : p.type;
+            this.props.updateProject(e.target.id, p);
+        }
+        this.props.history.push("/app/projects");
+    }
+
+    handleCancel(e) {
         this.props.history.push("/app/projects");
     }
 
@@ -84,6 +103,8 @@ class ProjectContainer extends React.Component {
                         handleAddProjectTypeChange={this.handleAddProjectTypeChange}
                         handleAddProjectNotificationChange={this.handleAddProjectNotificationChange}
                         handleOnAdd={this.handleOnAdd}
+                        handleOnEdit={this.handleOnEdit}
+                        handleCancel={this.handleCancel}
         />
     }
 }
@@ -99,7 +120,7 @@ function mapDispatchToProps(dispatch) {
     return {
         addProject: (project) => dispatch(ProjectActions.AddProject(project)),
         deleteProject: (project) => dispatch(ProjectActions.DeleteProject(project)),
-        updateProject: (project) => dispatch(ProjectActions.UpdateProject(project)),
+        updateProject: (projectId, project) => dispatch(ProjectActions.UpdateProject(projectId, project)),
         fetchProject: (user) => dispatch(ProjectActions.FetchProject(user))
     }
 }

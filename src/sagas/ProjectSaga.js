@@ -43,6 +43,18 @@ function* deleteProject({projectId}) {
     }
 }
 
+function* updateProject({projectId, project}) {
+    try {
+        let user = AppConfig.auth.currentUser;
+        let projectRef = AppConfig.database.ref('users/'+user.uid+'/projects/'+projectId);
+        projectRef.update(project);
+        yield put(Actions.UpdateProjectSuccess(projectId, project));
+        yield put(Actions.FetchProject(user))
+    } catch(e) {
+        yield put(Actions.DeleteProjectFailure(e.message))
+    }
+}
+
 export function* fetchProjectSaga() {
     yield takeEvery(ActionTypes.FETCH_PROJECT, fetchProjects)
 }
@@ -55,8 +67,13 @@ export function* deleteProjectSaga() {
     yield takeEvery(ActionTypes.DELETE_PROJECT, deleteProject)
 }
 
+export function* updateProjectSaga() {
+    yield takeEvery(ActionTypes.UPDATE_PROJECT, updateProject)
+}
+
 export default [
     fetchProjectSaga,
     addProjectSaga,
     deleteProjectSaga,
+    updateProjectSaga,
 ];

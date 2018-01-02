@@ -7,5 +7,6 @@ export default function* rootSaga() {
         ProjectSaga.fetchProjectSaga(),
         ProjectSaga.addProjectSaga(),
         ProjectSaga.deleteProjectSaga(),
+        ProjectSaga.updateProjectSaga(),
     ])
 }

@@ -24,7 +24,7 @@ let ProjectAdd = (props) => {
                             <option>Email</option>
                             <option>Slack</option>
                         </Input>
-                        <Button className="btn-secondary" onClick={props.handleOnAdd}>Cancel</Button>
+                        <Button className="btn-secondary" onClick={props.handleCancel}>Cancel</Button>
                         <Button className="btn-success" onClick={props.handleOnAdd}>Add</Button>
                     </FormGroup>
                 </Form>
