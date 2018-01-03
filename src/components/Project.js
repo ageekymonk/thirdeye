@@ -7,7 +7,6 @@ import ProjectAdd from 'components/ProjectAdd';
 import ProjectEdit from 'components/ProjectEdit'
 
 import 'font-awesome/css/font-awesome.css';
-import {AddProject} from "../redux/actions/ProjectAction";
 
 
 let Project = (props) => {
@@ -52,7 +51,7 @@ let Project = (props) => {
                 }/>
                 <Route path={`/app/projects/delete/:projectId`} render={(p) => {props.handleDeleteProject(p.match.params.projectId);
                 return <div></div>}}/>
-                <Route path={`/app/projects/pause/:projectId`} render={(p) => <div>pause</div>}/>
+                <Route path={`/app/projects/pause/:projectId`} render={() => <div>pause</div>}/>
                 <Route path={`/app/projects/edit/:projectId`} render={(p) => <ProjectEdit handleAddProjectNameChange={props.handleAddProjectNameChange}
                                                                                           handleAddProjectTypeChange={props.handleAddProjectTypeChange}
                                                                                           handleAddProjectNotificationChange={props.handleAddProjectNotificationChange}
